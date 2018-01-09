@@ -11,7 +11,7 @@ import { Pizza } from '../../model/pizza';
 export class PizzaServiceProvider {
 
 
-  private readonly url = "pizza.json";
+  private readonly url = "http://kim.jcatania.io:3000/pizza/";
 
   constructor(public http: HttpClient) {
     console.log('Hello PizzaServiceProvider Provider');
@@ -43,6 +43,14 @@ export class PizzaServiceProvider {
             });
         });
 
+    }
+
+    modifbyid(pizza: Pizza){
+        this.http.patch(this.url+pizza.id, pizza).subscribe((data:any) => {
+
+          console.log(pizza.name);
+          console.log(pizza.desc);
+          });
     }
 
 }
