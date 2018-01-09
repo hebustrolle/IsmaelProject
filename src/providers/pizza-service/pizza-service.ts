@@ -11,12 +11,11 @@ import { Pizza } from '../../model/pizza';
 export class PizzaServiceProvider {
 
 
-  private readonly url = "http://10.13.0.248:3000/pizza/";
+  private readonly url = "pizza.json";
 
   constructor(public http: HttpClient) {
     console.log('Hello PizzaServiceProvider Provider');
   }
-
 
   get(){
     let rt: Array<Pizza> = new Array<Pizza>();
