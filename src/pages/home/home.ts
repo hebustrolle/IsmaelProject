@@ -5,6 +5,7 @@ import { ModificationPage } from '../modification/modification';
 import { PanierPage } from '../panier/panier';
 import { AjoutPage } from '../ajout/ajout';
 import { Pizza } from '../../model/pizza';
+import { ToastController } from 'ionic-angular';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -13,7 +14,7 @@ import { Pizza } from '../../model/pizza';
 export class HomePage {
 paniertab = new Array<Pizza>();
 mypizza : any;
-  constructor(public navCtrl: NavController, private pizza: PizzaServiceProvider) {
+  constructor(public navCtrl: NavController, private pizza: PizzaServiceProvider, private toastCtrl: ToastController) {
     this.gethome();
    this.pizza.getById(2).then((item: any) => {
      console.log(item);
@@ -38,9 +39,19 @@ delete(mapizza){
  });
 }
 
+presentToast(message) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000,
+    position: 'top'
+  });
+
+  toast.present();
+}
+
 panier(mapizza){
   this.paniertab.push(mapizza);
-
+  this.presentToast('Ajouter au panier');
 }
 add(){
   console.log('ok');

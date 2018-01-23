@@ -29,4 +29,16 @@ paniertab: any;
     console.log('ionViewDidLoad PanierPage');
   }
 
+  suppPanier(mapizza){
+  let i = 0;
+    for (let pizz of this.paniertab) {
+      i++
+    if(mapizza.id == pizz.id){
+      console.log('je dois supprimer');
+      i--;
+      this.paniertab.splice(i, 1);
+      console.log(this.paniertab);
+    }
+    }
+  }
 }
