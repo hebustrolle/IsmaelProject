@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ModificationPageModule } from '../pages/modification/modification.module';
+import { PanierPageModule } from '../pages/panier/panier.module';
+import { AjoutPageModule } from '../pages/ajout/ajout.module';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     ModificationPageModule,
+    PanierPageModule,
+    AjoutPageModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
   ],

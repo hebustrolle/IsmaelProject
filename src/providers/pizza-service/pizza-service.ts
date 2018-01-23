@@ -45,12 +45,23 @@ export class PizzaServiceProvider {
 
     }
 
+    deletebyid(id: number){
+   this.http.delete(this.url+id).subscribe((data:any) => {
+
+  });
+
+    }
+
     modifbyid(pizza: Pizza){
         this.http.patch(this.url+pizza.id, pizza).subscribe((data:any) => {
 
-          console.log(pizza.name);
-          console.log(pizza.desc);
           });
+    }
+
+    addpizza(pizza: Pizza){
+      this.http.post(this.url, pizza).subscribe((data:any) => {
+console.log('ok');
+        });
     }
 
 }
