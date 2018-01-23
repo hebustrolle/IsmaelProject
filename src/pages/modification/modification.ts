@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PizzaServiceProvider } from '../../providers/pizza-service/pizza-service';
 import { Camera } from '@ionic-native/camera';
 import { Pizza } from '../../model/pizza';
-
+import { HomePage } from '../home/home';
 /**
  * Generated class for the ModificationPage page.
  *
@@ -30,7 +30,9 @@ pizza : Pizza = new Pizza();
   }
 
   modif(){
-    this.pizzaprovid.modifbyid(this.pizza);
+    this.pizzaprovid.modifbyid(this.pizza).then((item) => {
+    this.navCtrl.push(HomePage);
+    });
   }
 
   cammodif(){

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { PizzaServiceProvider } from '../../providers/pizza-service/pizza-service';
 import { Pizza } from '../../model/pizza';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the AjoutPage page.
  *
@@ -34,7 +35,9 @@ export class AjoutPage {
       this.pizza.price =+ this.pizzaadd['prix'];
       this.pizza.name = this.pizzaadd['nom'];
       this.pizza.desc = this.pizzaadd['desc'];
-      this.pizzaprovid.addpizza(this.pizza);
+      this.pizzaprovid.addpizza(this.pizza).then((item) =>{
+      this.navCtrl.push(HomePage);
+      });
   }
 
   camadd(){

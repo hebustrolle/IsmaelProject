@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pizza } from '../../model/pizza';
+import { HomePage } from '../../pages/home/home';
 /*
-  Generated class for the PizzaServiceProvider provider.
+Generated class for the PizzaServiceProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+See https://angular.io/guide/dependency-injection for more info on providers
+and Angular DI.
 */
 @Injectable()
 export class PizzaServiceProvider {
@@ -26,42 +27,52 @@ export class PizzaServiceProvider {
           for(let i=0; i<data.length; i++){
             rt.push(new Pizza(data[i]['id'], data[i]['name'], data[i]['desc'], data[i]['picture'], data[i]['price']))
           }
-            resolve(rt);});
-      });
+          resolve(rt);});
+        });
 
-  }
+      }
 
 
-    getById(id :number){
+      getById(id :number){
 
-      let rtbyid: Pizza;
-      return new Promise<Pizza>(
-        resolve => {
-          this.http.get(this.url+id).subscribe((data:any) => {
-             rtbyid = new Pizza(data['id'], data['name'], data['desc'], data['picture'], data['price']);
+        let rtbyid: Pizza;
+        return new Promise<Pizza>(
+          resolve => {
+            this.http.get(this.url+id).subscribe((data:any) => {
+              rtbyid = new Pizza(data['id'], data['name'], data['desc'], data['picture'], data['price']);
               resolve(rtbyid);
             });
-        });
-
-    }
-
-    deletebyid(id: number){
-   this.http.delete(this.url+id).subscribe((data:any) => {
-
-  });
-
-    }
-
-    modifbyid(pizza: Pizza){
-        this.http.patch(this.url+pizza.id, pizza).subscribe((data:any) => {
-
           });
-    }
 
-    addpizza(pizza: Pizza){
-      this.http.post(this.url, pizza).subscribe((data:any) => {
-console.log('ok');
-        });
-    }
+        }
 
-}
+        deletebyid(id: number){
+          return new Promise<Pizza>(
+            resolve => {
+              this.http.delete(this.url+id).subscribe((data:any) => {
+                resolve('Delete');
+              });
+            });
+
+          }
+
+          modifbyid(pizza: Pizza){
+            return new Promise<Pizza>(
+              resolve => {
+                this.http.patch(this.url+pizza.id, pizza).subscribe((data:any) => {
+                  resolve('success');
+                });
+              });
+
+            }
+
+            addpizza(pizza: Pizza){
+              return new Promise<Pizza>(
+                resolve => {
+              this.http.post(this.url, pizza).subscribe((data:any) => {
+                resolve('ok');
+              });
+            });
+            }
+
+          }

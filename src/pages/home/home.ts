@@ -14,14 +14,18 @@ export class HomePage {
 paniertab = new Array<Pizza>();
 mypizza : any;
   constructor(public navCtrl: NavController, private pizza: PizzaServiceProvider) {
-   this.pizza.get().then((items: Array<any>) => {
-     this.mypizza = items;
-     console.log(this.mypizza);
-   });
+    this.gethome();
    this.pizza.getById(2).then((item: any) => {
      console.log(item);
    });
   }
+
+gethome(){
+  this.pizza.get().then((items: Array<any>) => {
+    this.mypizza = items;
+    console.log(this.mypizza);
+  });
+}
 
 modifpage(mapizza){
   this.navCtrl.push(ModificationPage, {
@@ -29,12 +33,13 @@ modifpage(mapizza){
 });
 }
 delete(mapizza){
- this.pizza.deletebyid(mapizza.id);
+ this.pizza.deletebyid(mapizza.id).then((item) =>{
+   this.gethome();
+ });
 }
+
 panier(mapizza){
   this.paniertab.push(mapizza);
-  console.log(this.paniertab);
-  console.log(mapizza);
 
 }
 add(){
