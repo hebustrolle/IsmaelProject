@@ -50,7 +50,7 @@ export class PizzaServiceProvider {
           return new Promise<Pizza>(
             resolve => {
               this.http.delete(this.url+id).subscribe((data:any) => {
-                resolve('Delete');
+                resolve();
               });
             });
 
@@ -60,7 +60,7 @@ export class PizzaServiceProvider {
             return new Promise<Pizza>(
               resolve => {
                 this.http.patch(this.url+pizza.id, pizza).subscribe((data:any) => {
-                  resolve('success');
+                  resolve();
                 });
               });
 
@@ -70,7 +70,7 @@ export class PizzaServiceProvider {
               return new Promise<Pizza>(
                 resolve => {
               this.http.post(this.url, pizza).subscribe((data:any) => {
-                resolve('ok');
+                resolve();
               });
             });
             }
