@@ -1,30 +1,31 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>PIZZA HADJ</ion-title>
+    <ion-icon name="cart" class="panier" (click)="seepanier()"></ion-icon>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-<button ion-button color="secondary" clear (click)="add()">Ajouter</button>
-<button ion-button color="secondary" clear (click)="seepanier()">Voir son panier</button>
-<h3>La carte</h3>
-<ion-card *ngFor="let pizzaview of mypizza">
-
-  <img src="{{pizzaview.picture}}"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{pizzaview.name}}
+<ion-content padding class="pizzatheme">
+  <h3 class="title-carte">Découvrez notre carte</h3>
+  <ion-card *ngFor="let pizzaview of mypizza">
+    <div class="position">
+      <span class="bdo-custom">{{ pizzaview.price}}€</span>
+    </div>
+    <img src="{{pizzaview.picture}}"/>
+    <h2 *ngIf="pizzaview?.picture == ''">Aucune image disponible</h2>
+    <ion-card-content class="card-custom">
+      <ion-card-title class="text-title">
+        {{pizzaview.name}}
       </ion-card-title>
-    <p>
-      {{pizzaview.desc}}
-    </p>
-    <p>{{pizzaview.price}}</p>
-      <button ion-button color="secondary" clear (click)="modifpage(pizzaview)">Modifier</button>
-      <button ion-button color="secondary" clear (click)="delete(pizzaview)">Delete</button>
-      <button ion-button color="secondary" clear (click)="panier(pizzaview)">Ajouter au panier</button>
-  </ion-card-content>
-</ion-card>
+      <p class="text-desc">
+        {{pizzaview.desc}}
+      </p>
+      <button ion-button color="dark" (click)="modifpage(pizzaview)">Modifier</button>
+      <button ion-button color="dark" (click)="delete(pizzaview)">Supprimer</button>
+      <button ion-button color="danger" (click)="panier(pizzaview)">Ajouter au panier</button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

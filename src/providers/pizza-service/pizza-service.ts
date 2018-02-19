@@ -1,7 +1,17 @@
+/**
+ * @Author: HADJ Ismael <nonym0usse>
+ * @Date:   2018-02-14T11:53:40+01:00
+ * @Email:  contact@HADJ.fr
+ * @Last modified by:   nonym0usse
+ * @Last modified time: 2018-02-14T17:58:07+01:00
+ */
+
+
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pizza } from '../../model/pizza';
-import { HomePage } from '../../pages/home/home';
+
 /*
 Generated class for the PizzaServiceProvider provider.
 

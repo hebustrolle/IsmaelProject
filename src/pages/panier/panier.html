@@ -6,27 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>panier</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Votre panier</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-<h3>Votre panier</h3>
+<ion-content padding class="pizzatheme">
+  <h2 class="panier-vide" *ngIf="paniertab?.length <= 0">
+    Panier vide...
+  </h2>
 <ion-card *ngFor="let panierview of paniertab">
-
+  <span class="bdo-custom">{{ panierview.price}}€</span>
   <img src="{{panierview.picture}}"/>
   <ion-card-content>
-    <ion-card-title>
+    <ion-card-title class="text-title">
       {{panierview.name}}
       </ion-card-title>
     <p>
       {{panierview.desc}}
     </p>
-    <p>{{panierview.price}}</p>
-    <button ion-button color="secondary" clear (click)="suppPanier(panierview)">Supprimer du panier</button>
+    <button ion-button color="dark" (click)="suppPanier(panierview)">Supprimer du panier</button>
   </ion-card-content>
 </ion-card>
 </ion-content>

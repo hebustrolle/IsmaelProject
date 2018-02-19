@@ -1,11 +1,19 @@
+/**
+ * @Author: HADJ Ismael <nonym0usse>
+ * @Date:   2018-02-14T11:53:40+01:00
+ * @Email:  contact@HADJ.fr
+ * @Last modified by:   nonym0usse
+ * @Last modified time: 2018-02-14T17:58:39+01:00
+ */
+
+
+
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { ModificationPage } from '../pages/modification/modification';
+import { AjoutPage } from '../pages/ajout/ajout';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +30,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Notre carte', component: HomePage },
+      { title: 'Ajouter un produit', component: AjoutPage}
     ];
 
   }

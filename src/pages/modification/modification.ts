@@ -1,3 +1,13 @@
+/**
+ * @Author: HADJ Ismael <nonym0usse>
+ * @Date:   2018-02-14T11:53:40+01:00
+ * @Email:  contact@HADJ.fr
+ * @Last modified by:   nonym0usse
+ * @Last modified time: 2018-02-14T17:58:22+01:00
+ */
+
+
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PizzaServiceProvider } from '../../providers/pizza-service/pizza-service';

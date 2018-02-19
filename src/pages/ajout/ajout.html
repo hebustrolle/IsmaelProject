@@ -6,17 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ajout</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Ajout</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-<h3>Ajout d'une pizza</h3>
-
-
+<ion-content padding class="pizzatheme">
 <ion-list>
 
   <ion-item>
@@ -35,7 +32,7 @@
   </ion-item>
 
 </ion-list>
-<button ion-button color="secondary" clear (click)="camadd()">Ajouter Photos</button>
-<button ion-button color="secondary" clear (click)="add()">Valider</button>
+<button ion-button color="dark" (click)="camadd()">Ajouter Photos</button>
+<button ion-button color="dark" (click)="add()">Valider</button>
 
 </ion-content>
